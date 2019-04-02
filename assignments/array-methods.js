@@ -91,13 +91,49 @@ let ticketPriceTotal = [];
 ticketPriceTotal = runners.reduce(function(accumulator, currentValue) {
     return accumulator + currentValue.donation;
 }, 0);
-console.log(ticketPriceTotal);
+//console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+//find runners with donations above $100.
+let bigDonors = [];
+bigDonors = runners.filter(function(currentValue) {
+    return currentValue.donation >= 100;
+});
+//console.log(bigDonors);
 
 // Problem 2
+//a private sponsor wants to double the donations of the first 25 runners. Create new array showing the updated donation amounts for those runners.
+let firstTwentyFive = [];
+firstTwentyFive = runners.filter(function(currentValue) {
+    return currentValue.id < 26;
+});
+let doubledDonations = [];
+doubledDonations = firstTwentyFive.map(function(currentValue) {
+    return currentValue.donation * 2;
+});
+//console.log(doubledDonations);
 
 // Problem 3
+// Skinte got in a fight with the race organizers and have withdrawn all their runners. Create an updated array with Skinte runners removed.
+
+let noSkinte = [];
+noSkinte = runners.filter(function(currentValue) {
+    return currentValue.company_name !== "Skinte";
+});
+//console.log(noSkinte);
+
+
+//can you show how much money was lost with skinte's withdrawal?
+let skinteDonations = [];
+skinteDonations = runners.reduce(function(accumulator, currentValue) {
+    if (runners.company_name === "Skinte") {
+        return accumulator + currentValue.donation;
+    } else {
+        console.log('not working');
+    };
+}, 0);
+console.log(skinteDonations);
+//didn't quite get this to work.
