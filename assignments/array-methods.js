@@ -56,11 +56,11 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs.  Combine both the first and last names into a new array called fullName. 
 
+let fullName = [];
 runners.forEach(function(currentValue) {
-    let fullName = [];
-    fullName.push(currentValue.first_name, currentValue.last_name);
-    //console.log(fullName);
+    fullName.push(`${currentValue.first_name} ${currentValue.last_name}`); 
 });
+console.log(fullName);
 
 
 
@@ -129,10 +129,10 @@ noSkinte = runners.filter(function(currentValue) {
 //can you show how much money was lost with skinte's withdrawal?
 let skinteDonations = [];
 skinteDonations = runners.reduce(function(accumulator, currentValue) {
-    if (runners.company_name === "Skinte") {
+    if (currentValue.company_name === "Skinte") {
         return accumulator + currentValue.donation;
     } else {
-        console.log('not working');
+        return accumulator;
     };
 }, 0);
 console.log(skinteDonations);

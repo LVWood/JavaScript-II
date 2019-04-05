@@ -68,7 +68,7 @@ function contains(item, list, cb) {
   // Pass true to the callback if it is, otherwise pass false.
   return cb(true);
   } else {
-    console.log("sorry!");
+    console.log("sorry, it's not here!");
   }
 }
 
@@ -85,6 +85,5 @@ contains('Sloth', items, function() {
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
-
   // Do not mutate the original array.
 }
